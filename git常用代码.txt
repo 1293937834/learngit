@@ -1,0 +1,90 @@
+git的0基础教程
+https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192
+
+查看全局用户名和邮箱
+git config --list
+
+查看当前目录的所有文件
+ls
+
+全局用户名 QiuJiaYu
+全局邮箱:1293937834@qq.com
+
+新建目录,并命名为learngit
+$ mkdir learngit
+
+转到 learngit目录
+$ cd learngit
+
+查看 该目录的路径
+$ pwd
+/Users/michael/learngit
+
+通过git init命令把这个目录变成Git可以管理的仓库：
+$ git init
+
+显示隐藏的.git目录
+ls -ah
+
+用命令git add告诉Git，把文件添加到仓库：
+$ git add readme.txt
+
+git commit命令，-m后面输入的是本次提交的说明
+$ git commit -m "wrote a readme file"
+
+查看当前工作区状态
+$ git status
+
+查看 readme.txt 的修改内容
+$ git diff readme.txt
+
+退出
+Q
+
+查看 readme.txt里的内容
+$ cat readme.txt
+
+
+回退到指定的版本(commit_id 为指定的版本id)(时光穿梭回旧版本/重回未来)
+git reset --hard commit_id
+补充:其中HEAD指的是当前版本, HEAD^当前版本的前一个版本 HEAD^^则为前两个版本 HEAD~100为前100个版本
+
+查看操作日志,可查看版本id(意味着可以重回未来)
+git reflog
+
+进入vi模式时:
+按ESC,进入输出模式 按i 进入插入模式,输出注释,然后再按ESC,输入冒号,再按wq(保存))
+
+
+(该方法适用于已修改但未添加入暂存区的代码)
+撤回操作
+返回至暂存区以前的状态
+$ git checkout -- readme.txt
+
+(该方法适用于已修改并添加入暂存区但未提交的代码)
+撤回操作
+返回至暂存区的状态
+$ git reset HEAD readme.txt
+返回至暂存区以前的状态
+$ git checkout -- readme.txt
+
+删除test文件
+$ rm test.txt
+
+撤销删除
+$ git checkout -- test.txt
+
+删除版本库的test文件
+$ git rm test.txt
+
+设置密钥
+$ ssh-keygen -t rsa -C "youremail@example.com"
+
+查看是否连接成功
+ssh -T git@gitee.com
+
+
+
+
+
+
